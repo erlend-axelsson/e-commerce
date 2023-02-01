@@ -5,10 +5,14 @@ import code.sample.ecommerce.model.Product;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CheckoutService {
+
+  Logger logger = LoggerFactory.getLogger(CheckoutService.class);
   private static final Map<String, Product> products = Map.of(
       "001", new Product("Rolex", 100),
       "002", new Product("Michael Kors", 80),
@@ -22,6 +26,8 @@ public class CheckoutService {
         .map(products::get)
         .filter(Objects::nonNull)
         .toList();
+
+    logger.info("Calculating order: {}", productsToCheckout);
 
     Integer sum = productsToCheckout.stream()
         .map(Product::price)

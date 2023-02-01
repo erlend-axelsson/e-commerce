@@ -3,6 +3,8 @@ package code.sample.ecommerce.controller;
 import code.sample.ecommerce.model.Price;
 import code.sample.ecommerce.service.CheckoutService;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CheckoutController {
+  Logger logger = LoggerFactory.getLogger(CheckoutController.class);
   CheckoutService checkoutService;
 
   @Autowired
@@ -19,7 +22,13 @@ public class CheckoutController {
 
   @PostMapping("/checkout")
   public Price checkout(@RequestBody List<String> order){
-    return checkoutService.calculatePrice(order);
+    logger.info("Received order: {}", order);
+
+    Price calculatedPrice = checkoutService.calculatePrice(order);
+
+    logger.info("Returning calculated price: {}", calculatedPrice);
+
+    return calculatedPrice;
   }
 
 }
