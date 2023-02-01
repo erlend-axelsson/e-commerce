@@ -1,7 +1,7 @@
 package code.sample.ecommerce.controller;
 
 import code.sample.ecommerce.model.Price;
-import code.sample.ecommerce.service.CheckoutService;
+import code.sample.ecommerce.service.checkout.CheckoutService;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
