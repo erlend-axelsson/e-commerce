@@ -10,14 +10,12 @@ public class RolexDiscount implements Discount{
     long numberOfRolexes = order.stream().filter(product -> product.id().equals("001")).count();
     long numberOfDiscounts = numberOfRolexes / 3;
 
-    List<Product> discounts = LongStream.range(0, numberOfDiscounts)
+    return LongStream.range(0, numberOfDiscounts)
         .mapToObj(ignore -> List.of(
             new Product("REMOVE", "Slett Rolex x3", -300),
             new Product("DISCOUNT", "Rolex 3 for 200", 200)
         ))
         .flatMap(List::stream)
         .toList();
-
-    return discounts;
   }
 }

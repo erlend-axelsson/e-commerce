@@ -10,14 +10,12 @@ public class MichaelKorsDiscount implements Discount{
     long numberOfItems = order.stream().filter(product -> product.id().equals("002")).count();
     long numberOfDiscounts = numberOfItems / 2;
 
-    List<Product> discounts = LongStream.range(0, numberOfDiscounts)
+    return LongStream.range(0, numberOfDiscounts)
         .mapToObj(ignore -> List.of(
             new Product("REMOVE", "Slett Michael Kors x2", -160),
             new Product("DISCOUNT", "Michael Kors 2 for 120", 120)
         ))
         .flatMap(List::stream)
         .toList();
-
-    return discounts;
   }
 }
