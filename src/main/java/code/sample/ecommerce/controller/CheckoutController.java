@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CheckoutController {
-  private Logger logger = LoggerFactory.getLogger(CheckoutController.class);
-  private CheckoutService checkoutService;
+  private final Logger logger = LoggerFactory.getLogger(CheckoutController.class);
+  private final CheckoutService checkoutService;
 
   @Autowired
   public CheckoutController(CheckoutService checkoutService){

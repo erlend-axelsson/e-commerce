@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class DiscountService {
-  private Logger logger = LoggerFactory.getLogger(DiscountService.class);
+  private final Logger logger = LoggerFactory.getLogger(DiscountService.class);
   private static final List<Discount> discounts = List.of(new RolexDiscount(), new MichaelKorsDiscount());
 
   public List<Product> discount(List<Product> order) {
