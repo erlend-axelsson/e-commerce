@@ -14,8 +14,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class CheckoutService {
 
-  Logger logger = LoggerFactory.getLogger(CheckoutService.class);
-  DiscountService discountService;
+  private Logger logger = LoggerFactory.getLogger(CheckoutService.class);
+  private DiscountService discountService;
 
   @Autowired
   CheckoutService(DiscountService discountService) {
