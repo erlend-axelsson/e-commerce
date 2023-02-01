@@ -29,7 +29,7 @@ class ECommerceApplicationTests {
     HttpHeaders headers = new HttpHeaders();
     headers.setContentType(MediaType.APPLICATION_JSON);
 
-    HttpEntity<String> httpEntity = new HttpEntity<String>("[]", headers);
+    HttpEntity<String> httpEntity = new HttpEntity<>("[]", headers);
 
     var price = this.restTemplate.postForObject("http://localhost:" + port + "/checkout",
         httpEntity,
@@ -45,15 +45,15 @@ class ECommerceApplicationTests {
     headers.setContentType(MediaType.APPLICATION_JSON);
 
     HttpEntity<String> rolexHttpEntity =
-        new HttpEntity<String>("[\"001\"]", headers);
+        new HttpEntity<>("[\"001\"]", headers);
     HttpEntity<String> michaelKorsHttpEntity =
-        new HttpEntity<String>("[\"002\"]", headers);
+        new HttpEntity<>("[\"002\"]", headers);
     HttpEntity<String> swatchHttpEntity =
-        new HttpEntity<String>("[\"003\"]", headers);
+        new HttpEntity<>("[\"003\"]", headers);
     HttpEntity<String> casioHttpEntity =
-        new HttpEntity<String>("[\"004\"]", headers);
+        new HttpEntity<>("[\"004\"]", headers);
     HttpEntity<String> allWatchesHttpEntity =
-        new HttpEntity<String>("[\"001\",\"002\",\"003\",\"004\"]", headers);
+        new HttpEntity<>("[\"001\",\"002\",\"003\",\"004\"]", headers);
 
     Price price;
 
@@ -93,7 +93,7 @@ class ECommerceApplicationTests {
     headers.setContentType(MediaType.TEXT_PLAIN);
 
     HttpEntity<String> httpEntity =
-        new HttpEntity<String>("[\"001\"]", headers);
+        new HttpEntity<>("[\"001\"]", headers);
 
 
     ResponseEntity<Price> response = this.restTemplate.postForEntity("http://localhost:" + port + "/checkout",
@@ -110,7 +110,7 @@ class ECommerceApplicationTests {
     headers.setContentType(MediaType.APPLICATION_JSON);
 
     HttpEntity<String> httpEntity =
-        new HttpEntity<String>("{\"foo\": [\"001\"]}", headers);
+        new HttpEntity<>("{\"foo\": [\"001\"]}", headers);
 
 
     ResponseEntity<Price> response = this.restTemplate.postForEntity("http://localhost:" + port + "/checkout",
@@ -127,8 +127,8 @@ class ECommerceApplicationTests {
     HttpHeaders headers = new HttpHeaders();
     headers.setContentType(MediaType.APPLICATION_JSON);
 
-    HttpEntity<String> unkownIdHttpEntity = new HttpEntity<String>("[\"foo\",\"bar\",\"baz\"]", headers);
-    HttpEntity<String> mixedIdHttpEntity = new HttpEntity<String>("[\"foo\",\"001\",\"baz\"]", headers);
+    HttpEntity<String> unkownIdHttpEntity = new HttpEntity<>("[\"foo\",\"bar\",\"baz\"]", headers);
+    HttpEntity<String> mixedIdHttpEntity = new HttpEntity<>("[\"foo\",\"001\",\"baz\"]", headers);
 
     Price unknown = this.restTemplate.postForObject("http://localhost:" + port + "/checkout",
         unkownIdHttpEntity,
@@ -149,10 +149,10 @@ class ECommerceApplicationTests {
     headers.setContentType(MediaType.APPLICATION_JSON);
 
     HttpEntity<String> rolexDiscountHttpEntity =
-        new HttpEntity<String>(
+        new HttpEntity<>(
             "[\"001\",\"001\",\"001\",\"001\",\"001\",\"001\",\"001\"]", headers);
     HttpEntity<String> michaelKorsDiscountHttpEntity =
-        new HttpEntity<String>(
+        new HttpEntity<>(
             "[\"002\",\"002\",\"002\",\"002\",\"002\",\"002\",\"002\"]", headers);
 
     Price rolexDiscount = this.restTemplate.postForObject("http://localhost:" + port + "/checkout",
